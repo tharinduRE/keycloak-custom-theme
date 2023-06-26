@@ -1,5 +1,7 @@
 # Keycloak Theme Customization
 
+![Screenshot](docs/screenshot-1.png)
+
 This repository contains a customized theme for Keycloak, an open-source identity and access management solution. The customized theme allows you to modify the look and feel of the Keycloak user interface to align with your branding and user experience requirements.
 
 ## Development
@@ -17,16 +19,6 @@ To use Docker Compose:
 7. Follow the steps mentioned in the "Installation" section to apply and test your customized theme.
 
 To stop the Keycloak container, run `docker-compose down`.
-
-## Theme Contents
-
-The theme customization is located in the `themes/custom-theme` folder. This folder contains the following files and directories:
-
-- `login` - Customized login page templates and resources.
-- `account` - Customized account management page templates and resources.
-- `admin` - Customized admin console page templates and resources.
-- `email` - Customized email templates for various Keycloak notifications.
-- `static` - Additional static files (e.g., CSS, images) used by the theme.
 
 ## Customization Process
 
@@ -70,6 +62,11 @@ The customized theme will now be applied to the corresponding Keycloak pages.
 ## Contributing
 
 If you find any issues or have suggestions for improvement, please feel free to contribute by opening an issue or submitting a pull request. Your contributions are greatly appreciated.
+
+## Documentation
+
+- [Keycloak Documentation](https://www.keycloak.org/documentation)
+- [Keycloak Theme Developer Guide](https://www.keycloak.org/docs/latest/server_development/#_themes)
 
 ## License
 
