@@ -39,7 +39,7 @@ To package the customized theme into a JAR file for use with Keycloak, you can u
 3. Run the following command: 
 
 ```sh
-./build_theme.sh
+./package.sh
 ```
 4. Follow the prompts to provide the JAR file name and confirm the customization.
 
