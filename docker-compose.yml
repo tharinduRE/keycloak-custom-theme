@@ -42,4 +42,4 @@ services:
         # Providers
         # - './providers:/opt/keycloak/providers'
         # Development theme folder
-        - './themes/custom-theme/theme/custom:/opt/keycloak/themes/custom'
+        - './themes/custom-theme/theme:/opt/keycloak/themes'
