@@ -20,14 +20,20 @@ services:
       command:
         - start-dev
       container_name: keycloak_server
+      ports:
+        - 8080:8080
+      volumes:
+        # Providers
+        # - './providers:/opt/keycloak/providers'
+        # Development theme folder
+        - './themes/custom-theme/theme:/opt/keycloak/themes'
       depends_on:
         - postgres
       environment:
         KC_HOSTNAME: localhost
-        KC_HOSTNAME_STRICT: "false"
-        KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
+        # KC_HOSTNAME_STRICT: "false"
+        # KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
         # KC_PROXY: "none"
-        
         KC_DB: postgres
         KC_DB_URL: jdbc:postgresql://keycloak_postgres:5432/keycloak
         KC_DB_USERNAME: keycloak
@@ -36,10 +42,3 @@ services:
         KEYCLOAK_ADMIN_PASSWORD: admin
         KC_HEALTH_ENABLED: "true"
         KC_LOG_LEVEL: info
-      ports:
-        - 8081:8080  
-      volumes:
-        # Providers
-        # - './providers:/opt/keycloak/providers'
-        # Development theme folder
-        - './themes/custom-theme/theme:/opt/keycloak/themes'
