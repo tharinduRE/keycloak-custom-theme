@@ -1,0 +1,87 @@
+:root {
+  --pf-c-form__label-text--FontWeight: 400;
+  --pf-c-form__label--FontSize: 14px;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  font-size: var(--pf-c-form__label--FontSize);
+}
+
+.pf-c-button.pf-m-primary {
+  color: var(--pf-c-button--m-primary--Color);
+  background-color: var(--pf-global--palette--black-900);
+}
+
+.btn-lg {
+  padding: 8px 10px;
+}
+
+.login-pf body {
+  /* background: linear-gradient(
+      0deg,
+      rgba(0, 81, 255, 0.3),
+      rgba(0, 255, 234, 0.3)
+    ),
+    url("../img/login-bg.jpg") no-repeat center center fixed; */
+  background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(0, 0, 0, 0.233)),
+    url("../img/login-bg.jpg") no-repeat center center fixed;
+  backdrop-filter: blur(12px);
+  background-size: cover;
+  height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.66666667;
+  color: #363636;
+}
+
+.login-page-container {
+  display: flex;
+  /* justify-content: center; */
+  /* flex-direction: row-reverse; */
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-pf-page {
+  width: 33vw;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background: white;
+  min-height: 100vh;
+}
+
+.login-pf-page .card-pf {
+  margin-top: 10rem;
+  box-shadow: none;
+}
+
+
+.card-pf,
+.pf-c-form-control,
+.pf-c-button {
+  border-radius: 4px;
+}
+
+.kc-social-links {
+  flex-direction: column;
+}
+
+.pf-c-button {
+  font-weight: 600;
+}
+
+.pf-c-form-control {
+  border-color: var(--pf-global--BorderColor--300);
+}
+.pf-c-form__label {
+  padding-bottom: 8px;
+}
+
+.login-pf-page .card-pf {
+  background-color: #fff;
+}

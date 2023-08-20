@@ -3,6 +3,10 @@
     {
       "name": "custom-theme",
       "types": ["login"]
+    },
+    {
+      "name": "custom-v2-theme",
+      "types": ["login"]
     }
   ]
 }
