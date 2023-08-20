@@ -1,11 +1,11 @@
 {
   "themes": [
     {
-      "name": "custom-theme",
+      "name": "custom",
       "types": ["login"]
     },
     {
-      "name": "custom-v2-theme",
+      "name": "custom.v2",
       "types": ["login"]
     }
   ]
