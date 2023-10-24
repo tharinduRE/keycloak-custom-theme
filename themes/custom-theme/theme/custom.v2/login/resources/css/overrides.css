@@ -1,6 +1,8 @@
 :root {
   --pf-c-form__label-text--FontWeight: 400;
   --pf-c-form__label--FontSize: 14px;
+  --pf-global--link--Color: rgb(17, 37, 56);
+  --pf-global--link--Color--hover: #556a7e;
 }
 
 ::placeholder {

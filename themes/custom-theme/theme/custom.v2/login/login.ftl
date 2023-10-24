@@ -11,7 +11,7 @@
                     <div class="${properties.kcFormGroupClass!}">
                         <!-- <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label> -->
 
-                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" placeholder="${msg('username')}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
+                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" placeholder="${msg('usernameOrEmail')}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
                                aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                         />
 
@@ -70,12 +70,13 @@
         </div>
 
     </div>
-    <#elseif section = "info" >
+    <!-- <#elseif section = "info" > -->
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration-container">
-                <div id="kc-registration">
-                    <span>${msg("noAccount")} <a tabindex="6"
-                                                 href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <div id="kc-registration" style="margin:0.5rem auto">
+                    <span>
+                        <a type="button" class="pf-c-button btn-lg pf-m-link pf-m-block" tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}<a/>
+                        </span>
                 </div>
             </div>
         </#if>
