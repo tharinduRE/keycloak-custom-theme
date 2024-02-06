@@ -7,6 +7,10 @@
     {
       "name": "custom.v2",
       "types": ["login"]
+    },
+    {
+      "name": "katanox",
+      "types": ["login"]
     }
   ]
 }

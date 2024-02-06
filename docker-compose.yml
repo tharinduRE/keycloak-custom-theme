@@ -1,44 +1,44 @@
-version: '2'
+version: "2"
 
 volumes:
   postgres_data:
-      driver: local
+    driver: local
 
 services:
   postgres:
-      image: postgres:latest
-      container_name: keycloak_postgres
-      volumes:
-        - ./postgres_data:/var/lib/postgresql/data
-      environment:
-        POSTGRES_DB: keycloak
-        POSTGRES_USER: keycloak
-        POSTGRES_PASSWORD: password
+    image: postgres:latest
+    container_name: keycloak_postgres
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
 
   keycloak:
-      image: quay.io/keycloak/keycloak:21.1.1
-      command:
-        - start-dev
-      container_name: keycloak_server
-      ports:
-        - 8080:8080
-      volumes:
-        # Providers
-        # - './providers:/opt/keycloak/providers'
-        # Development theme folder
-        - './themes/custom-theme/theme:/opt/keycloak/themes'
-      depends_on:
-        - postgres
-      environment:
-        KC_HOSTNAME: localhost
-        # KC_HOSTNAME_STRICT: "false"
-        # KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
-        # KC_PROXY: "none"
-        KC_DB: postgres
-        KC_DB_URL: jdbc:postgresql://keycloak_postgres:5432/keycloak
-        KC_DB_USERNAME: keycloak
-        KC_DB_PASSWORD: password
-        KEYCLOAK_ADMIN: admin
-        KEYCLOAK_ADMIN_PASSWORD: admin
-        KC_HEALTH_ENABLED: "true"
-        KC_LOG_LEVEL: info
+    image: quay.io/keycloak/keycloak:22.0.4
+    command:
+      - start-dev
+    container_name: keycloak_server
+    ports:
+      - 8080:8080
+    volumes:
+      # Providers
+      # - "./providers:/opt/keycloak/providers"
+      # Development theme folder
+      - "./themes/custom-theme/theme:/opt/keycloak/themes"
+    depends_on:
+      - postgres
+    environment:
+      KC_HOSTNAME: localhost
+      # KC_HOSTNAME_STRICT: "false"
+      # KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
+      # KC_PROXY: "none"
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://keycloak_postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+      KC_LOG_LEVEL: info

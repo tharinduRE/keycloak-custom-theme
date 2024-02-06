@@ -36,12 +36,15 @@ To package the customized theme into a JAR file for use with Keycloak, you can u
 
 1. Ensure you have Java and the `jar` command installed on your system.
 2. Open a terminal and navigate to the repository's root directory.
-3. Run the following command: 
+3. Run the following command:
 
 ```sh
 ./package.sh
 ```
+
 4. Follow the prompts to provide the JAR file name and confirm the customization.
+
+Note: The name of the .jar file is `katanox-theme`.
 
 The script will create a JAR file containing the customized theme and place it in the `providers` directory.
 
@@ -71,4 +74,3 @@ If you find any issues or have suggestions for improvement, please feel free to 
 ## License
 
 This repository is licensed under the [MIT License](LICENSE).
-
