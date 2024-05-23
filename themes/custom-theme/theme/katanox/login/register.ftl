@@ -5,30 +5,6 @@
         ${msg("registerTitle")}
     <#elseif section = "form">
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('role',properties.kcFormGroupErrorClass!)}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="user.attributes.role" class="${properties.kcLabelClass!}">${msg("Role")}</label>
-                </div>
-                <div id="switch-container" class="${properties.kcInputWrapperClass!}">
-                    <input
-                        type="text"
-                        id="user.attributes.role"
-                        class="${properties.kcInputClass!}"
-                        name="user.attributes.role"
-                        value="${(register.formData['user.attributes.role']!'')}"
-                        style="display:none;"
-                    />
-                    <button class="pf-c-button pf-m-secondary active" type="button">
-                        <svg height="20" version="1.1" viewBox="0 0 24 20" width="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>4A9B4DE3-B583-42D6-BB26-616CB59032D2navy</title><g fill="none" fill-rule="evenodd" id="UI/UX-Guidelines" stroke="none" stroke-width="1"><g id="Tokens/Icons" transform="translate(-654.000000, -395.000000)"><g id="Group-5" transform="translate(654.000000, 395.000000)"><polygon id="Stroke-1" points="0 0 23.999999 0 23.999999 23.999999 0 23.999999" stroke="#000000" stroke-opacity="0.0117647061" stroke-width="1.33333336e-11"></polygon><path d="M6.99999976,12.9999996 C8.65999928,12.9999996 9.99999976,11.6599991 9.99999976,9.99999958 C9.99999976,8.3399997 8.65999928,6.99999958 6.99999976,6.99999958 C5.33999988,6.99999958 3.99999976,8.3399997 3.99999976,9.99999958 C3.99999976,11.6599991 5.33999988,12.9999996 6.99999976,12.9999996 Z M18.9999999,6.9999997 L10.9999999,6.9999997 L10.9999999,13.9999997 L2.99999994,13.9999997 L2.99999994,4.9999997 L0.99999994,4.9999997 L0.99999994,19.9999997 L2.99999994,19.9999997 L2.99999994,16.9999997 L20.9999999,16.9999997 L20.9999999,19.9999997 L22.9999999,19.9999997 L22.9999999,10.9999997 C22.9999999,8.78999947 21.2099977,6.9999997 18.9999999,6.9999997 Z" fill="currentColor" id="Fill-3"></path></g></g></g></svg>
-                        Supplier
-                    </button>
-                    <button class="pf-c-button pf-m-secondary" type="button">
-                        <svg fill="currentColor" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.352 19.398h2l4.488-8H17s3 0 3-1.398-3-1.398-3-1.398h-5.16l-4.488-8h-2l2.488 8H4.25L2 6.598H0L1.602 10 0 13.398h2l2.25-2h3.59zm0 0"></path></svg>
-                        Buyer
-                    </button>
-                </div>
-            </div>
-
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
@@ -180,15 +156,6 @@
             </div>
         </form>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
-        <script>
-            document.getElementById('switch-container').addEventListener('click', function(event) {
-                if (event.target.classList.contains('pf-c-button')) {
-                    document.querySelector('.active').classList.remove('active');
-                    event.target.classList.add('active');
-                    document.querySelector('[id="user.attributes.role"]').value = event.target.innerText;
-                }
-            });
-        </script>
         <style>
             #switch-container {
                 display: flex;
