@@ -12,11 +12,13 @@ To use Docker Compose:
 
 1. Install Docker and Docker Compose on your machine.
 2. Open a terminal and navigate to the repository's root directory.
-3. Run the following command: `docker-compose up -d`
-4. Wait for the Keycloak container to start.
-5. Access the Keycloak admin console by visiting `http://localhost:8080/auth/admin/`.
-6. Log in using the default admin credentials (username: `admin`, password: `admin`).
-7. Follow the steps mentioned in the "Installation" section to apply and test your customized theme.
+3. Go the [releases](https://github.com/katanox/keycloak-custom-theme/releases) page in github and download the latest `katanox-theme.jar` and place in this repository inside a `providers` folder. The resulting structure should be `keycloak-custom-theme/providers/katanox-theme.jar`.
+4. In the `docker-compose.yml` uncomment the providers and comment the line under `Development theme folder`.
+5. Run the following command: `docker-compose up -d`
+6. Wait for the Keycloak container to start.
+7. Access the Keycloak admin console by visiting `http://localhost:8080/auth/admin/`.
+8. Log in using the default admin credentials (username: `admin`, password: `admin`).
+9. Follow the steps mentioned in the "Installation" section to apply and test your customized theme.
 
 To stop the Keycloak container, run `docker-compose down`.
 
