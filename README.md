@@ -57,13 +57,12 @@ The script will create a JAR file containing the customized theme and place it i
 
 To install and use the customized theme in Keycloak:
 
-1. Copy the generated JAR file (`custom-theme.jar`) from the `providers` directory to the Keycloak server's `standalone/deployments` directory.
-2. Start or restart the Keycloak server.
-3. Log in to the Keycloak admin console.
-4. Navigate to the desired realm.
-5. Go to the "Realm Settings" > "Themes" section.
-6. Select the customized theme from the available options for each desired theme (e.g., Login, Account, Admin).
-7. Save the changes.
+1. Start or restart the Keycloak server.
+2. Log in to the Keycloak admin console.
+3. Navigate to the desired realm.
+4. Go to the "Realm Settings" > "Themes" section.
+5. Select the customized theme from the available options for each desired theme (e.g., Login, Account, Admin).
+6. Save the changes.
 
 The customized theme will now be applied to the corresponding Keycloak pages.
 
