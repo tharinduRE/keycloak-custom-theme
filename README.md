@@ -66,10 +66,6 @@ To install and use the customized theme in Keycloak:
 
 The customized theme will now be applied to the corresponding Keycloak pages.
 
-## Contributing
-
-If you find any issues or have suggestions for improvement, please feel free to contribute by opening an issue or submitting a pull request. Your contributions are greatly appreciated.
-
 ## Documentation
 
 - [Keycloak Documentation](https://www.keycloak.org/documentation)
