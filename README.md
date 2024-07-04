@@ -36,6 +36,9 @@ To customize the Keycloak theme for your specific needs, you can follow these st
 
 To package the customized theme into a JAR file for use with Keycloak, you can use the provided shell script:
 
+**NOTE**: When updating the theme jar, include the node modules in the packaged theme, otherwise they may not be picked up by Keycloak.
+Alternatively, unzip the latest working release, copy all your changes into it and package it again.
+
 1. Ensure you have Java and the `jar` command installed on your system.
 2. Open a terminal and navigate to the repository's root directory.
 3. Run the following command:
