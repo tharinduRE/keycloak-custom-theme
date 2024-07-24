@@ -44,6 +44,8 @@ workflows:
       - hold-release:
           name: hold-release
           type: approval
+          requires:
+            - build-jar
       - publish-release:
           requires:
             - hold-release
