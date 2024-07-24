@@ -28,15 +28,6 @@ jobs:
           paths:
             - providers
 
-  publish-release:
-    docker:
-      - image: cimg/openjdk:21.0.2
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/workspace
-      - run: java --version
-
 workflows:
   publish-preview:
     jobs:
@@ -46,6 +37,11 @@ workflows:
           type: approval
           requires:
             - build-jar
-      - publish-release:
+      - gh/release:
+          tag: "1.0.0"
+          title: "The initial release"
+          notes-file: changelog.md
+          context:
+            - GITHUB_CREDS
           requires:
             - hold-release
