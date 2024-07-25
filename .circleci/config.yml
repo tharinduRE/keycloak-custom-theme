@@ -33,10 +33,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - checkout
       - gh/setup
-      - attach_workspace:
-          at: ~/workspace
       - run: gh status
       - run: ls -lh
 workflows:
