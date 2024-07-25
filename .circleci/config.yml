@@ -33,7 +33,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - gh/install
+      - gh/setup
       - attach_workspace:
           at: ~/workspace
       - run: gh status
