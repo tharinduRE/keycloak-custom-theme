@@ -29,6 +29,7 @@ jobs:
           paths:
             - providers
   publish-release:
+    working_directory: ~/workspace
     docker:
       - image: cimg/base:stable
     steps:
