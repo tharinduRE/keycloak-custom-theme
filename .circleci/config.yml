@@ -33,6 +33,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: chmod +x ./tag-release.sh
       - run: ./tag-release.sh
 
   publish-release:
