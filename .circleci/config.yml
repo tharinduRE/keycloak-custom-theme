@@ -7,7 +7,7 @@ version: 2.1
 #     docker:
 #       - image: "cypress/browsers:node16.14.0-chrome99-ff97"
 orbs:
-  gh: circleci/github-cli@2.0
+  gh: circleci/github-cli@2.3.0
 # orbs:
 #   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
 #   # Orbs reduce the amount of configuration required for common tasks.
