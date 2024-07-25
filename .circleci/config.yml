@@ -42,7 +42,6 @@ workflows:
           tag: "1.0.0"
           title: "The initial release"
           notes-file: changelog.md
-          context:
-            - GITHUB_CREDS
+          token: CIRCLE_OIDC_TOKEN
           requires:
             - hold-release
