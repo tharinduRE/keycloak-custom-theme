@@ -36,8 +36,7 @@ jobs:
       - gh/setup
       - attach_workspace:
           at: ~/workspace
-      - run: gh status
-      - run: ls -lh
+      - run: gh release create v1.0.0 ./providers/*.jar
 workflows:
   publish-preview:
     jobs:
