@@ -28,13 +28,6 @@ jobs:
           root: .
           paths:
             - providers
-  tag-current-release:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run: chmod +x ./tag-release.sh
-      - run: ./tag-release.sh
 
   publish-release:
     working_directory: ~/workspace
@@ -48,7 +41,8 @@ jobs:
       # get the latest tag and bump it based on commit message [major, minor, patch]
       # if a preview release - create a new release, but not mark as latest
       # if a master release - create a new release and mark as latest
-      - run: gh release view --json
+      - run: chmod +x ./publish-release.sh
+      - run: ./publish-release.sh
 workflows:
   publish-preview:
     jobs:
