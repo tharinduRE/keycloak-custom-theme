@@ -35,7 +35,11 @@ new_version=$(increment_version "$latest_tag" "$commit_message")
 is_master=false
 
 if [[ $CIRCLE_BRANCH == "master" ]]; then
-    is_master=true
+  is_master=true
+fi
+
+if [[ !is_master ]]; then
+  new_version="$new_version-$CIRCLE_SHA1"
 fi
 
 gh release create $new_version ./providers/*.jar --latest=$is_master --title="$new_version" --notes="$commit_message"
