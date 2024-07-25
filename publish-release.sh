@@ -38,4 +38,4 @@ if [[ $CIRCLE_BRANCH == "master" ]]; then
     is_master=true
 fi
 
-gh release create $new_version ./providers/*.jar --latest=$is_master --title=$new_version --notes=$commit_message
+gh release create $new_version ./providers/*.jar --latest=$is_master --title="$new_version" --notes="$commit_message"
