@@ -1,7 +1,7 @@
 #!/bin/bash
 
 commit_message=$(git log --format=oneline --pretty=format:%s -n 1 $CIRCLE_SHA1)
-latest_tag=$(gh release list --exclude-drafts --limit 1 --json tagName --jq '.[].tagName')
+latest_tag=$(gh release view --json tagName --jq '.tagName')
 
 echo "Commit message: $commit_message" 
 echo "Latest tag: $latest_tag"
