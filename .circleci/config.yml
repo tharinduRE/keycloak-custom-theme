@@ -33,7 +33,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: git log --format=oneline -n 1 $CIRCLE_SHA1
+      - run: git log --format=oneline --pretty=format:%s -n 1 $CIRCLE_SHA1
       - run: echo $GIT_COMMIT_MESSAGE
 
   publish-release:
