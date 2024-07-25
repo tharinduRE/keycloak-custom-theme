@@ -29,12 +29,11 @@ jobs:
           paths:
             - providers
   tag-current-release:
-    environment:
-      GIT_COMMIT_MESSAGE: $(git log --format=%B -n 1 $CIRCLE_SHA1)
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: echo "export GIT_COMMIT_MESSAGE=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"" >> ~/.bashrc
       - run: echo $GIT_COMMIT_MESSAGE
 
   publish-release:
