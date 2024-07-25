@@ -28,7 +28,16 @@ jobs:
           root: .
           paths:
             - providers
-
+  publish-release:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - gh/install
+      - attach_workspace:
+          at: ~/workspace
+      - run: gh status
+      - run: ls -lh
 workflows:
   publish-preview:
     jobs:
@@ -38,10 +47,6 @@ workflows:
           type: approval
           requires:
             - build-jar
-      - gh/release:
-          tag: "1.0.0"
-          title: "The initial release"
-          files: "./providers/*.jar"
-          token: GITHUB_TOKEN
+      - publish-release:
           requires:
             - hold-release
