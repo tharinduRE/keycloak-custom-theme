@@ -30,7 +30,7 @@ jobs:
             - providers
   tag-current-release:
     environment:
-      GIT_COMMIT_MESSAGE: git log --format=%B -n 1 $CIRCLE_SHA1
+      GIT_COMMIT_MESSAGE: $(git log --format=%B -n 1 $CIRCLE_SHA1)
     docker:
       - image: cimg/base:stable
     steps:
