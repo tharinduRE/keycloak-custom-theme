@@ -41,7 +41,7 @@ workflows:
       - gh/release:
           tag: "1.0.0"
           title: "The initial release"
-          notes-file: changelog.md
+          files: "./providers/*.jar"
           token: GITHUB_TOKEN
           requires:
             - hold-release
