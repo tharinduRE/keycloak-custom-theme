@@ -42,6 +42,6 @@ workflows:
           tag: "1.0.0"
           title: "The initial release"
           notes-file: changelog.md
-          token: CIRCLE_OIDC_TOKEN
+          token: GITHUB_TOKEN
           requires:
             - hold-release
