@@ -15,9 +15,6 @@ orbs:
 #   node: circleci/node@5
 #   cypress: cypress-io/cypress@2.1.0
 
-environment:
-  GIT_COMMIT_MESSAGE: git log --format=oneline -n 1 $CIRCLE_SHA1
-
 jobs:
   build-jar:
     docker:
@@ -36,6 +33,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: git log --format=oneline -n 1 $CIRCLE_SHA1
       - run: echo $GIT_COMMIT_MESSAGE
 
   publish-release:
