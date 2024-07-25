@@ -1,7 +1,7 @@
 #!/bin/bash
 
 commit_message=$(git log --format=oneline --pretty=format:%s -n 1 $CIRCLE_SHA1)
-latest_tag=$(gh release view --json tagName -q .tagName)
+latest_tag=$(gh release list --exclude-drafts --limit 1 --json tagName --jq '.[].tagName')
 
 echo "Commit message: $commit_message" 
 echo "Latest tag: $latest_tag"
@@ -33,13 +33,17 @@ increment_version() {
 # Get new version
 new_version=$(increment_version "$latest_tag" "$commit_message")
 is_master=false
+cmd_args=""
 
 if [[ $CIRCLE_BRANCH == "master" ]]; then
   is_master=true
 fi
 
 if [[ !is_master ]]; then
-  new_version="$new_version-$CIRCLE_SHA1"
+  new_version="$new_version-alpha-$CIRCLE_SHA1"
+  cmd_args="--draft"
 fi
 
-gh release create $new_version ./providers/*.jar --latest=$is_master --title="$new_version" --notes="$commit_message"
+release_url=$(gh release create "$new_version" ./providers/*.jar --title="$new_version" --notes="$commit_message" $cmd_args)
+
+echo $release_url
