@@ -53,6 +53,20 @@ Note: The name of the .jar file is `katanox-theme`.
 
 The script will create a JAR file containing the customized theme and place it in the `providers` directory.
 
+## Release process
+1. Make required changes in the branch and commit them. Keep in mind that commit message is used to determine what part of version to bump.
+- if commit message contains `[major]` substring - the magor version will be bumped (v0.0.0 -> v1.0.0)
+- if commit message contains `[minor]` substring - the minor version will be bumped (v0.0.0 -> v0.1.0)
+- if commit message contains `[patch]` substring - the patch version will be bumped (v0.0.0 -> v0.0.1)
+- if no one of them in the commit message - the patch version will be bumped (v0.0.0 -> v0.0.1)
+
+2. Go to circle ci and approve release of the new version.
+- If the branch is non-master it will be a draft release (the tag will not be created and published in git)
+- If the branch is a master branch it will be a normal release (git will create a tag and assosiate it with the release)
+
+3. CircleCi pipeline will log the name of the release. Depending on the branch it could be `untagged_commitSHA` or `vX.X.X`. That needs to be copied
+4. The next step is to go to kuberentes repository and apply changes using helm. More information here: https://www.notion.so/katadocs/Keycloak-themes-75bd6e0700954f49bc6f9f9f36638839?pvs=4
+
 ## Installation
 
 To install and use the customized theme in Keycloak:

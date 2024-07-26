@@ -1,19 +1,7 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# executors:
-#   node-cypress:
-#     docker:
-#       - image: "cypress/browsers:node16.14.0-chrome99-ff97"
 orbs:
   gh: circleci/github-cli@2.3.0
-# orbs:
-#   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
-#   # Orbs reduce the amount of configuration required for common tasks.
-#   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
-#   node: circleci/node@5
-#   cypress: cypress-io/cypress@2.1.0
 
 jobs:
   build-jar:
@@ -38,13 +26,10 @@ jobs:
       - gh/setup
       - attach_workspace:
           at: ~/workspace
-      # get the latest tag and bump it based on commit message [major, minor, patch]
-      # if a preview release - create a new release, but not mark as latest
-      # if a master release - create a new release and mark as latest
       - run: chmod +x ./publish-release.sh
       - run: ./publish-release.sh
 workflows:
-  publish-preview:
+  publish:
     jobs:
       - build-jar
       - hold-release:
