@@ -15,11 +15,8 @@ if [ ! -d "$providers_dir" ]; then
   mkdir "$providers_dir"
 fi
 
-# Prompt for the JAR file name or use a default name
-read -p "Enter the theme name (default: custom-theme): " jar_name
-
 # Use the default name if no input provided
-jar_name=${jar_name:-custom-theme}
+jar_name="katanox-theme"
 
 # Add the .jar extension if not already present
 if [[ $jar_name != *".jar" ]]; then
