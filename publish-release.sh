@@ -32,15 +32,10 @@ increment_version() {
 
 # Get new version
 new_version=$(increment_version "$latest_tag" "$commit_message")
-is_master=false
 cmd_args=""
 
-if [[ $CIRCLE_BRANCH == "master" ]]; then
-  is_master=true
-fi
-
-if [[ !is_master ]]; then
-  new_version="$new_version-alpha-$CIRCLE_SHA1"
+if [[ $CIRCLE_BRANCH != "master" ]]; then
+  new_version="$new_version-$CIRCLE_SHA1"
   cmd_args="--draft"
 fi
 
