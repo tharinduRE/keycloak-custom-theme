@@ -1,2 +1,4 @@
 postgres_data
 providers
+.DS_Store
+node_modules

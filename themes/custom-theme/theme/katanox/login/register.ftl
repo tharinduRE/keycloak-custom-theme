@@ -144,14 +144,8 @@
             </#if>
 
             <div class="${properties.kcFormGroupClass!}">
-                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
-                    </div>
-                </div>
-
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
+                    <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" > ${msg("doRegister")} <i class="fa fa-long-arrow-right"></i></button>
                 </div>
             </div>
         </form>
@@ -182,5 +176,11 @@
                 color: #0265fe;
             }
         </style>
+    <#elseif section = "haveAccount">
+        <div id="kc-info" class="${properties.kcSignUpClass!}">
+            <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
+                <span>${kcSanitize(msg("doHaveAccount"))} <a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+            </div>
+        </div>
     </#if>
 </@layout.registrationLayout>

@@ -14,23 +14,19 @@ To use Docker Compose:
 2. Open a terminal and navigate to the repository's root directory.
 3. Go the [releases](https://github.com/katanox/keycloak-custom-theme/releases) page in github and download the latest `katanox-theme.jar` and place in this repository inside a `providers` folder. The resulting structure should be `keycloak-custom-theme/providers/katanox-theme.jar`.
 4. In the `docker-compose.yml` uncomment the providers and comment the line under `Development theme folder`.
-5. Run the following command: `docker-compose up -d`
-6. Wait for the Keycloak container to start.
-7. Access the Keycloak admin console by visiting `http://localhost:8080/auth/admin/`.
-8. Log in using the default admin credentials (username: `admin`, password: `admin`).
-9. Follow the steps mentioned in the "Installation" section to apply and test your customized theme.
+5. Go to `/themes/custom-theme/theme/keycloak/common/resources` and run `yarn install --production`
+6. Go to the root and run `./package.sh && docker-compose up`
+7. Wait for the Keycloak container to start.
+8. Access the Keycloak admin console by visiting `http://localhost:8080/auth/admin/`.
+9. Log in using the default admin credentials (username: `admin`, password: `admin`).
+10. Follow the steps mentioned in the "Installation" section to apply and test your customized theme.
+11. Navigate to the `themes/custom-theme` folder.
+12. Modify the template files (e.g., HTML, CSS) and resources (e.g., images) according to your branding and design requirements.
+13. Update any necessary configurations or properties related to the theme customization.
+14. Save your changes.
+15. Kill the process in console and re-run `./package.sh && docker-compose up`
 
-To stop the Keycloak container, run `docker-compose down`.
-
-## Customization Process
-
-To customize the Keycloak theme for your specific needs, you can follow these steps:
-
-1. Clone this repository to your local machine.
-2. Navigate to the `themes/custom-theme` folder.
-3. Modify the template files (e.g., HTML, CSS) and resources (e.g., images) according to your branding and design requirements.
-4. Update any necessary configurations or properties related to the theme customization.
-5. Save your changes.
+Note: If you make a ny changes you need to re-pack the theme and restart docker
 
 ## Building the Theme
 

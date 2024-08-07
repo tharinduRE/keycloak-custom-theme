@@ -1,0 +1,44 @@
+{
+  "name": "resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@patternfly/react-icons": "^4.93.7",
+    "@patternfly/react-styles": "^4.92.8",
+    "@patternfly/react-tokens": "^4.93.7",
+    "attr-accept": "^2.2.2",
+    "file-selector": "^0.6.0",
+    "focus-trap": "^7.5.4",
+    "js-tokens": "^9.0.0",
+    "loose-envify": "^1.4.0",
+    "object-assign": "^4.1.1",
+    "pnpm": "^9.6.0",
+    "prop-types": "^15.8.1",
+    "react-dropzone": "^14.2.3",
+    "react-is": "^18.3.1",
+    "tabbable": "^6.2.0",
+    "tslib": "^2.6.3",
+    "@patternfly/patternfly": "^4.224.5",
+    "@patternfly/react-core": " ^4.278.1",
+    "jquery": "^3.7.1",
+    "patternfly": "^3.59.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.5.1",
+    "shx": "^0.3.4"
+  }
+}

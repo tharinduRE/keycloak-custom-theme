@@ -6,11 +6,12 @@ orbs:
 jobs:
   build-jar:
     docker:
-      - image: cimg/openjdk:21.0.2
+      - image: timbru31/java-node:8-jdk-20
     steps:
       - checkout
       - attach_workspace:
           at: ~/workspace
+      - run: cd ./themes/custom-theme/theme/keycloak/common/resources && yarn install --production
       - run: ./package.sh
       - persist_to_workspace:
           root: .

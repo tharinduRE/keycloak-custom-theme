@@ -146,18 +146,19 @@
           </#if>
 
           <#nested "socialProviders">
-
-          <#if displayInfo>
-              <div id="kc-info" class="${properties.kcSignUpClass!}">
-                  <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
-                      <#nested "info">
-                  </div>
-              </div>
-          </#if>
         </div>
       </div>
-
     </div>
+
+    <#if displayInfo>
+        <div id="kc-info" class="${properties.kcSignUpClass!}">
+            <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
+                <#nested "info">
+            </div>
+        </div>
+    </#if>
+
+    <#nested "haveAccount">
   </div>
 </body>
 </html>

@@ -27,8 +27,23 @@ p.instruction {
     margin: 5px 0;
 }
 
+.pf-c-input-group {
+    position: relative;
+}
+
 .pf-c-button.pf-m-control {
-    border-color: rgba(230, 230, 230, 0.5);
+    background: none;
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+.pf-c-button.pf-m-control::after {
+    display: none;
+}
+
+.pf-m-control i.fa {
+    color: #9c9c9c;
 }
 
 h1#kc-page-title {
@@ -158,13 +173,15 @@ div.kc-logo-text span {
 }
 
 #kc-info {
-    margin: 20px -40px -30px;
+    margin: 24px 0;
 }
 
 #kc-info-wrapper {
     font-size: 13px;
-    padding: 15px 35px;
-    background-color: #F0F0F0;
+}
+
+#kc-registration-container {
+    margin-top: 36px;
 }
 
 #kc-form-options span {
@@ -458,7 +475,8 @@ ul#kc-totp-supported-apps {
     --pf-c-form-control--PaddingRight: 14px;
 }
 
-input[type=submit] {
+input[type=submit],
+button[type=submit] {
     font-size: 14px;
     height: 48px;
     padding: 12px 24px;

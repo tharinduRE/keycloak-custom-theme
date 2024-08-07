@@ -60,17 +60,12 @@
                                 </div>
                             </#if>
                             </div>
-                            <div class="${properties.kcFormOptionsWrapperClass!}">
-                                <#if realm.resetPasswordAllowed>
-                                    <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
-                                </#if>
-                            </div>
 
                       </div>
 
                       <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                           <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                          <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                          <button tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit">${msg("doLogIn")} <i class="fa fa-long-arrow-right"></i></button>
                       </div>
                 </form>
             </#if>
@@ -78,6 +73,14 @@
         </div>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
     <#elseif section = "info" >
+        <#if realm.resetPasswordAllowed>
+            <div id="ktx-forgot">
+                <div id="ktx-forgot-wrapper">
+                    <span><a class="forgot-password-link" tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                </div>
+            </div>
+            
+        </#if>
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration-container">
                 <div id="kc-registration">
@@ -110,5 +113,4 @@
             </div>
         </#if>
     </#if>
-
 </@layout.registrationLayout>
