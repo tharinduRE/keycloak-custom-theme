@@ -1,13 +1,23 @@
 :root {
+  --pf-v5-global--primary-color--100:#30302e;
+  --pf-v5-global--primary-color--200:#242424;
+
   --pf-c-form__label-text--FontWeight: 400;
   --pf-c-form__label--FontSize: 14px;
   --pf-global--link--Color: rgb(17, 37, 56);
   --pf-global--link--Color--hover: #556a7e;
+
+  --pf-v5-c-title--m-3xl--FontWeight: var(--pf-v5-global--FontWeight--bold) !important;
+  --pf-v5-global--FontFamily--heading: "Space Grotesk", Helvetica, Arial, sans-serif;
+  --pf-v5-global--FontFamily--text:"Space Grotesk", Helvetica, Arial, sans-serif;
 }
 
 ::placeholder {
   /* Most modern browsers support this now. */
   font-size: var(--pf-c-form__label--FontSize);
+}
+.pf-v5-c-login__main-header{
+  text-align: center;
 }
 
 .pf-c-button.pf-m-primary {
@@ -19,25 +29,9 @@
   padding: 8px 10px;
 }
 
-.login-pf body {
-  /* background: linear-gradient(
-      0deg,
-      rgba(0, 81, 255, 0.3),
-      rgba(0, 255, 234, 0.3)
-    ),
-    url("../img/login-bg.jpg") no-repeat center center fixed; */
-  background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(0, 0, 0, 0.233)),
-    url("../img/login-bg.jpg") no-repeat center center fixed;
-  backdrop-filter: blur(12px);
-  background-size: cover;
-  height: 100%;
-}
-
-body {
-  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.66666667;
-  color: #363636;
+.login-pf-settings{
+  display: flex;
+  justify-content: space-between;
 }
 
 .login-page-container {
