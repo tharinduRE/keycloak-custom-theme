@@ -1,6 +1,6 @@
 # Keycloak Theme Customization
 
-![Screenshot](docs/screenshot-1.png)
+![Screenshot](docs/screenshot-v25.png)
 
 This repository contains a customized theme for Keycloak, an open-source identity and access management solution. The customized theme allows you to modify the look and feel of the Keycloak user interface to align with your branding and user experience requirements.
 
