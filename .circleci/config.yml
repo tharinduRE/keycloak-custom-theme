@@ -18,7 +18,7 @@ jobs:
           paths:
             - providers
 
-  publish-release:
+  publish-staging-release:
     working_directory: ~/workspace
     docker:
       - image: cimg/base:stable
@@ -28,16 +28,43 @@ jobs:
       - attach_workspace:
           at: ~/workspace
       - run: chmod +x ./publish-release.sh
-      - run: ./publish-release.sh
+      - run: ./publish-release.sh staging
+
+  publish-production-release:
+    working_directory: ~/workspace
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - gh/setup
+      - attach_workspace:
+          at: ~/workspace
+      - run: chmod +x ./publish-release.sh
+      - run: ./publish-release.sh production
+
 workflows:
   publish:
     jobs:
-      - build-jar
-      - hold-release:
-          name: hold-release
+      - build-jar:
+          filters:
+            branches:
+              only: develop
+      - publish-staging-release:
+          requires:
+            - build-jar
+          filters:
+            branches:
+              ignore: master
+      - hold-production-release:
           type: approval
           requires:
             - build-jar
-      - publish-release:
+          filters:
+            branches:
+              only: master
+      - publish-production-release:
           requires:
-            - hold-release
+            - hold-production-release
+          filters:
+            branches:
+              only: master

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check if an argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <staging|production>"
+    exit 1
+fi
+
+release_type=$1
+
 commit_message=$(git log --format=oneline --pretty=format:%s -n 1 $CIRCLE_SHA1)
 latest_tag=$(gh release view --json tagName --jq '.tagName')
 
@@ -34,9 +42,17 @@ increment_version() {
 new_version=$(increment_version "$latest_tag" "$commit_message")
 cmd_args=""
 
-if [[ $CIRCLE_BRANCH != "master" ]]; then
-  new_version="$new_version-$CIRCLE_SHA1"
-  cmd_args="--draft"
+if [ "$release_type" = "staging" ]; then
+  new_version="$new_version-staging-$CIRCLE_SHA1"
+  cmd_args="--draft --prerelease"
+elif [ "$release_type" = "production" ]; then
+  if [[ $CIRCLE_BRANCH != "master" ]]; then
+    echo "Production releases should only be created from the master branch"
+    exit 1
+  fi
+else
+  echo "Invalid release type. Use 'staging' or 'production'."
+  exit 1
 fi
 
 release_url=$(gh release create "$new_version" ./providers/*.jar --title="$new_version" --notes="$commit_message" $cmd_args)
